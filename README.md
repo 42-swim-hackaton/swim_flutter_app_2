@@ -34,7 +34,7 @@ e.g.
 ```
   static Color _lightPrimaryVariantColor = Color(0xFF15A8A4);
 
-  static final ThemeData lightTheme = ThemeData(
+  static final ThemeData lightTheme 🟡 = ThemeData(
     scaffoldBackgroundColor: _lightPrimaryColor,
     appBarTheme: AppBarTheme(
       color: _lightPrimaryVariantColor,
@@ -42,25 +42,59 @@ e.g.
         color: _lightOnPrimaryColor,
       ),
     ),
+    textTheme: _lightTextTheme, 🟢
   );
+  
+   static final TextTheme _lightTextTheme 🟢  = TextTheme(
+    headline🔵: _lightScreenHeadingTextStyle, 🟣
+    display1: _lightScreenButtonText,
+    body2: _lightScreenWidgetTitle, 
+  );
+  
+   static final TextStyle _lightScreenHeadingTextStyle 🟣 = TextStyle(
+    fontFamily: "RobotoMono",  
+    fontSize: 21.0,
+    color: _lightPrimaryColor,
+  );
+  
 ```
+  
    You must use it this way:
 ```
-   return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Navigate Life',
-          style: Theme.of(context).textTheme.headline,
-          ),
-        ),
-      ),
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Swim App Hackathon Contribution',
+      theme: AppTheme.lightTheme, 🟡
+      darkTheme: AppTheme.darkTheme,
+      home: Home(),
+    )
+  );
+  
+  class Home extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+      return Scaffold(
+         appBar: AppBar(
+           title: Text(
+             'Navigate Life',
+             style: Theme.of(context).textTheme.headline 🔵,
+             ),
+           ),
+         ),
+         ...
+       );
+      }
+    }
 ```
-   This line -> 
+
+   This line, is the one who make use of the color according to the theme, either the light or the dark one -> 
    ```
    style: Theme.of(context).textTheme.headline,
    ```
 
-⭐️ If you change the value for **_lightPrimaryVariantColor**, the AppBar will change automatically the background color :)
+⭐️ If you change the value for **_lightPrimaryVariantColor**, the AppBar will change automatically the background color :) and so on...
 
 
 🏴‍☠️ Resource: https://www.youtube.com/watch?v=RJkiESVJXAk
