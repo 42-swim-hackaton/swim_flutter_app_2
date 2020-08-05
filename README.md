@@ -28,6 +28,42 @@ Setting themes and working with them is so much easy, we'd defined the mobile ap
 ![Light Theme](https://github.com/42-swim-hackaton/swim_flutter_app/blob/master/lib/utilities/resources/Light-Theme.png)
 ![Dark Theme](https://github.com/42-swim-hackaton/swim_flutter_app/blob/master/lib/utilities/resources/Dark-Theme.png)
 
+e.g.
+
+⭐️ For a set color like this:
+
+```
+  static Color _lightPrimaryVariantColor = Color(0xFF15A8A4);
+
+  static final ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: _lightPrimaryColor,
+    appBarTheme: AppBarTheme(
+      color: _lightPrimaryVariantColor,
+      iconTheme: IconThemeData(
+        color: _lightOnPrimaryColor,
+      ),
+    ),
+  );
+```
+   You must use it this way:
+```
+   return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Navigate Life',
+          style: Theme.of(context).textTheme.headline,
+          ),
+        ),
+      ),
+```
+   This line -> 
+   ```
+   style: Theme.of(context).textTheme.headline,
+   ```
+
+⭐️ If you change the value for **_lightPrimaryVariantColor**, the AppBar will change automatically the background color :)
+
+
 🏴‍☠️ Resource: https://www.youtube.com/watch?v=RJkiESVJXAk
 
 ## First time with Flutter? Here some common useful resources

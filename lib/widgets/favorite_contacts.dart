@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '../index.dart';
 
@@ -44,9 +46,9 @@ class FavoriteContacts extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ChatScreen(
+                    /*  builder: (_) => ChatScreen(
                         user: favorites[index],
-                      ),
+                      ),*/
                     ),
                   ),
                   child: Padding(
